@@ -14,9 +14,12 @@ This application was developed on WSL2 Ubuntu
 - Clone/unzip files on webserver
 - run the following commands:
 - ./vendor/bin/sail up (this will take a few minutes the first time as theres quite a bit to pull)
+- ./vendor/bin/sail php artisan migrate
+- ./vendor/bin/sail php artisan db:seed
 - npm run dev
 
-You should now be able to naviagte to localhost to access the site index.
+You should now be able to navigate to localhost to access the site index.
+
 From there you can use the top navigation to select a vehicle category, Cars or Vans, to begin browing the vehicles.
 They are presented in paginated chunks of 5 and can be filtered and/or ordered using the options presented. 
 Clicking on the randonly seeded names will open a modal with more details.
