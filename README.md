@@ -15,7 +15,7 @@ This application was developed on WSL2 Ubuntu.
 
 Installation
 - Clone/unzip files on webserver
-- run the following commands:
+- navigate to the newly created root folder and run the following commands in bash:
 - ./vendor/bin/sail up (this will take a few minutes the first time as theres quite a bit to pull)
 - ./vendor/bin/sail php artisan migrate
 - ./vendor/bin/sail php artisan db:seed
