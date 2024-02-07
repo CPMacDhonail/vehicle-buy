@@ -13,7 +13,7 @@ This application was developed on WSL2 Ubuntu
 #Installation
 - Clone/unzip files on webserver
 - run the following commands:
-- ./vendor/bin/sail up
+- ./vendor/bin/sail up (this will take a few minutes the first time as theres quite a bit to pull)
 - npm run dev
 
 You should now be able to naviagte to localhost to access the site index.
