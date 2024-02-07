@@ -10,7 +10,7 @@ Key components
 
 This application was developed on WSL2 Ubuntu
 
-#Installation
+Installation
 - Clone/unzip files on webserver
 - run the following commands:
 - ./vendor/bin/sail up (this will take a few minutes the first time as theres quite a bit to pull)
