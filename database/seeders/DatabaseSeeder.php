@@ -2,21 +2,49 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Vehicle;
+use App\Models\Vehicle_subcategory;
 use Illuminate\Database\Seeder;
+use App\Models\Vehicle_category;
 
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Seed the application database with the top cats,
+     * sub cats and vehicles required for basic testing
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        //create two top level categories
+        $carCat = Vehicle_category::factory()->create([
+            'name' => 'cars',
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $vanCat = Vehicle_category::factory()->create([
+            'name' => 'vans',
+        ]);
+
+        $carSubs = ['hatchback','saloon','estate'];
+        $vanSubs = ['pickup','flatbed','lcv'];
+
+        //create three sub cats in each category, each with 4 associated 'vehicles'
+        foreach($carSubs as $sub){
+            Vehicle_subcategory::factory()
+                ->has(
+                    Vehicle::factory()
+                        ->count(4)
+                )
+                ->create(['vehicle_categories_id'=>$carCat->id,'name'=>$sub]);
+        }
+
+        foreach($vanSubs as $sub){
+            Vehicle_subcategory::factory()
+                ->has(
+                    Vehicle::factory()
+                        ->count(4)
+                )
+                ->create(['vehicle_categories_id'=>$vanCat->id,'name'=>$sub]);
+        }
+
     }
 }
